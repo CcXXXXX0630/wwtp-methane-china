@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: "Per-plant methane potential estimates and analysis code for China's above-ground municipal WWTPs"
+authors:
+  - family-names: Xiong
+    given-names: Can
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Tang
+    given-names: Xifang
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Fu
+    given-names: Jingwei
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Liu
+    given-names: Yaqian
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Li
+    given-names: Qian
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+version: "1.0"
+license: CC-BY-4.0
+date-released: "2026-07-27"
+keywords:
+  - wastewater treatment
+  - methane recovery
+  - anaerobic digestion
+  - Gini coefficient
+  - Monte Carlo
+  - resource concentration
+message: "If you use this dataset or code, please cite the accompanying paper in Resources, Conservation & Recycling."
