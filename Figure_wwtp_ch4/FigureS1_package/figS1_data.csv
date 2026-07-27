@@ -1,0 +1,5 @@
+study,group,label,sublabel,value_Tg,lo_Tg,hi_Tg,lo_band_Tg,hi_band_Tg,range_note
+This study,potential,This study,theoretical AD-recovery potential,0.504,0.377,0.659,0.251,0.695,"MC median (thick = MC 95% CI; thin = full uncertainty band)"
+Sun et al. 2026,emission,Sun et al. 2026,measured + model (2023),0.254,0.228,0.280,,,±0.026
+Li et al. 2024,emission,Li et al. 2024,plant-level inventory,0.151,0.106,0.207,,,-30%/+37%
+Wang et al. 2022,emission,Wang et al. 2022,national inventory (2014),0.100,,,,,no reported range
