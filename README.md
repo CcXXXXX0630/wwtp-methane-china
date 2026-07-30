@@ -43,4 +43,7 @@ GIS boundary shapefiles are **not** included. Install `cnmaps` (`pip install cnm
 
 ## License
 
-Code: MIT. Data: CC-BY-4.0 (attribution required; see `CITATION.cff`).
+Code (`.py` files): **MIT** — see `LICENSE`.
+
+Data (`.csv`, `.xlsx` files): **CC-BY-4.0** — see `LICENSE-DATA`. Attribution required;
+derived from Zhou et al. (2024) *Scientific Data* 11, 941 (CC-BY).
