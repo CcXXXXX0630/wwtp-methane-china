@@ -14,10 +14,11 @@ to the script itself, so it runs from any working directory):
 
     figure1_map.py            <- this file
     fig1_plants.csv           <- 2,457 plants (prov,city,lon,lat,scale,proc,tier,ch4_d,ch4_y)
-    gis_shapefiles/           <- boundary shapefiles (WGS84)
-        国家.shp / .shx / .dbf / .prj / .cpg      national polygon
-        省.shp   / .shx / .dbf / .prj / .cpg      province polylines
-        九段线.shp / .shx / .dbf / .prj / .cpg     nine-dash line
+Boundary shapefiles are intentionally removed from this repository due to
+redistribution restrictions.  The script relies on the open-source package
+cnmaps (pip install cnmaps) to draw Chinese boundaries at runtime, so no
+local GIS files are needed.  If the package is unavailable the script falls
+back to a simplified matplotlib cartopy projection and prints a warning.
 
 and writes Figure1.png (600 dpi) + Figure1.pdf (vector) next to itself.
 

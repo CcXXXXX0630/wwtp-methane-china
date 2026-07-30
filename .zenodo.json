@@ -1,0 +1,35 @@
+{
+  "creators": [
+    {
+      "name": "Xiong, Can",
+      "affiliation": ""
+    }
+  ],
+  "title": "Per-plant methane potential estimates and analysis code for China's above-ground municipal WWTPs",
+  "description": "Analysis code and derived data accompanying 'Concentrated distribution and targeted deployment of methane resources in China's municipal wastewater treatment plants.' Contains: (1) reproducible Python pipeline (wwtp_model, Monte Carlo, distribution fitting, recoverable scenarios) with verification against published values; (2) per-plant methane estimates for 2,457 above-ground WWTPs; (3) all figure-generation scripts and their input CSV files. Running run_all.py reproduces every quantitative result from the raw plant dataset in about 90 seconds.",
+  "keywords": [
+    "wastewater treatment",
+    "methane recovery",
+    "anaerobic digestion",
+    "Gini coefficient",
+    "Monte Carlo",
+    "resource concentration",
+    "WWTP",
+    "carbon neutrality"
+  ],
+  "license": "CC-BY-NC-4.0",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "language": "eng",
+  "version": "1.0",
+  "related_identifiers": [
+    {
+      "relation": "cites",
+      "identifier": "https://doi.org/10.1038/s41597-024-03748-5"
+    },
+    {
+      "relation": "cites",
+      "identifier": "https://doi.org/10.1126/sciadv.aec0536"
+    }
+  ]
+}

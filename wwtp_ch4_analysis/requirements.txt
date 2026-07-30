@@ -3,3 +3,4 @@ numpy>=1.21
 scipy>=1.7
 openpyxl>=3.0
 powerlaw>=1.5
+cnmaps
