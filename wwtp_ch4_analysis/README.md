@@ -2,9 +2,9 @@
 
 Analysis code accompanying:
 
-> Xiong, C. *Concentrated distribution and targeted
+> Can Xiong *Concentrated distribution and targeted
 > deployment of methane resources in China's municipal wastewater treatment
-> plants.* Resources, Conservation & Recycling (2026). doi: https://doi.org/10.5281/zenodo.15185301.
+> plants.* Resources, Conservation & Recycling (2026). 
 
 Running `run_all.py` reproduces every quantitative result in the manuscript
 and Supplementary Information from the raw plant dataset, and prints a
