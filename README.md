@@ -1,10 +1,8 @@
 # WWTP Methane Concentration & Targeted Deployment
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15185301.svg)](https://doi.org/10.5281/zenodo.15185301)
-
 Analysis code, data, and figure-generation scripts accompanying:
 
-> Xiong, C., Tang, X., Fu, J., Liu, Y., Li, Q. *Concentrated distribution and targeted deployment of methane resources in China's municipal wastewater treatment plants.* Resources, Conservation & Recycling (2026).
+> Can Xiong. *Concentrated distribution and targeted deployment of methane resources in China's municipal wastewater treatment plants.* Resources, Conservation & Recycling (2026).
 
 ## What's here
 
@@ -46,14 +44,3 @@ GIS boundary shapefiles are **not** included. Install `cnmaps` (`pip install cnm
 ## License
 
 Code: MIT. Data: CC-BY-4.0 (attribution required; see `CITATION.cff`).
-
-## Citation
-
-```bibtex
-@dataset{xiong2026wwtp,
-  author = {Xiong, Can and Tang, Xifang and Fu, Jingwei and Liu, Yaqian and Li, Qian},
-  title  = {Per-plant methane potential estimates and analysis code for China's above-ground municipal WWTPs},
-  year   = {2026},
-  doi    = {10.5281/zenodo.15185301},
-}
-```
