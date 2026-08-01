@@ -1,49 +1,59 @@
-Figure 4 - reproducible package
-===============================
+Figure 4 - corrected header (deterministic national total)
+==========================================================
 
-Contents
-    figure4.py       self-contained plotting script (no external modules)
-    fig1_plants.csv  input data: 2,457 above-ground WWTPs (tier + ch4_y are used;
-                     the file also carries prov/city/lon/lat/scale/proc/ch4_d)
-    Figure4.png      output, 600 dpi raster
-    Figure4.pdf      output, vector (editable text, pdf.fonttype=42)
+WHAT WAS WRONG
+--------------
+The figure printed the Monte Carlo median (7.04e8) as the THEORETICAL header,
+while every ribbon, tier share and the "27%" recovery rate in the same figure
+were computed from the deterministic total (7.32e8). The figure was therefore
+internally inconsistent: 2.00 / 7.04 = 28.4%, not 27%.
+The Figure 4 caption in 03_Figures.docx already says 7.32e8 (deterministic),
+so the caption was right and the figure was wrong.
 
-Run
-    pip install numpy pandas matplotlib
+WHAT CHANGED IN figure4.py (3 lines, no change to any plotted geometry)
+-----------------------------------------------------------------------
+line 32   font fallback reordered: Liberation Sans placed before DejaVu Sans.
+          Arial still comes first, so this has no effect on a machine that has
+          Arial. It only makes the fallback closer to Arial elsewhere.
+
+line 52   -  MC_MED = 7.04
+          +  theo_1e8 = tot * 1e4 / 1e8   # deterministic national total
+
+line 123  -  f'{MC_MED:.2f}\u00d710$^8$ Nm$^3$ yr$^{{-1}}$'
+          +  f'{theo_1e8:.2f}\u00d710$^8$ Nm$^3$ yr$^{{-1}}$'
+
+The THEORETICAL header now reads 7.32x10^8 Nm3 yr-1 and matches both the
+caption and the 27% shown on the RECOVERABLE header.
+
+HOW TO RUN LOCALLY
+------------------
+Put figure4.py and fig1_plants.csv in the same folder, then:
+
     python figure4.py
 
-Paths are resolved relative to the script, so it runs from any working
-directory. It regenerates Figure4.png and Figure4.pdf next to itself.
-Output is deterministic (no random component).
+Requires numpy, pandas, matplotlib only. Writes Figure4.png and Figure4.pdf
+at 600 dpi into the same folder.
 
-What the script computes
-    Tier CH4 sums come straight from fig1_plants.csv. The recoverable model is
-    applied per plant:
-        recoverable = theoretical  x  AD_coverage[tier]  x  biogas(0.60)  x  operating(0.80)
-        AD_coverage = {Tier I 0.65, Tier II 0.35, Tier III 0.15}
-    biogas x operating = 0.48 is tier-uniform, so it cancels in every share; the
-    tier-differentiated AD coverage is what amplifies Tier I's share.
+Expected console output:
+    wrote Figure4.{png,pdf} | theo={'I': 75.6, 'II': 20.2, 'III': 4.2}
+    | rec Tier I=86.4% | rec total=2.00e8 (27%) | n={'I': 724, 'II': 1004, 'III': 729}
 
-    Reproduces: theoretical shares 75.6 / 20.2 / 4.2 %; recoverable Tier I share
-    86.4 %; recoverable total 2.00e8 Nm3/yr (27 % of theoretical); tier plant
-    counts 724 / 1004 / 729. The theoretical headline total 7.04e8 Nm3/yr is the
-    Monte-Carlo median (constant MC_MED in the script).
+Expected image size: 4500 x 2430 px at 600 dpi.
 
-The figure
-    A hand-built resource cascade: THEORETICAL -> RECOVERABLE -> VALUE LADDER.
-    Tier I's scale carries it across the whole value ladder (CHP -> pipeline
-    biomethane -> single-cell protein); Tier II reaches CHP; Tier III is hauled
-    for centralized disposal. Tier I's share amplifies 75.6 % -> 86.4 % (+10.8 pp)
-    from theoretical to recoverable.
+IMPORTANT - RUN THIS LOCALLY, DO NOT USE THE BUNDLED PNG FOR SUBMISSION
+-----------------------------------------------------------------------
+The bundled Figure4.png was rendered on a machine WITHOUT Arial, so it fell
+back to Liberation Sans (Arial-metric-compatible: identical layout and identical
+4500x2430 output size, but slightly different glyph outlines). Compared with the
+Figure 4 currently embedded in 03_Figures.docx, about 0.47% of pixels differ,
+all of it on text glyphs.
 
-Colour semantics (harmonised with Figures 1-3)
-    Tier I = deep teal #2C5A6B, Tier II = clay #C08A5E, Tier III = stone #CBC7BC.
-    The value ladder is Tier I's high-value destination, so its rungs use a TEAL
-    gradient (pale -> deep = low -> high value); clay is reserved for Tier II
-    throughout so the value column never clashes with a tier colour.
+Your original Figure 4 was rendered with Arial, and Figures 1-3 were too. So the
+bundled PNG is a verification render only. Re-run figure4.py on your own machine
+to get an Arial version that is consistent with the rest of the figure set.
 
-Caption (suggested)
-    Figure 4. Tiered resource cascade from theoretical to recoverable methane and
-    on to end-use value. A small number of large (Tier I) plants hold most of the
-    recoverable methane and are the only ones whose scale supports the
-    highest-value pathways.
+WHAT TO CHANGE IN 03_Figures.docx
+---------------------------------
+Replace the Figure 4 image only. The Figure 4 caption needs NO edit: it already
+reads "7.32 x 10^8 Nm3 yr-1, deterministic estimate" and "2.00 x 10^8 Nm3 yr-1,
+27.3%", both of which now match the corrected figure.

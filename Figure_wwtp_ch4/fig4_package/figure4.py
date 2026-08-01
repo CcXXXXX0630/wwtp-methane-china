@@ -29,7 +29,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 mpl.rcParams.update({
     'font.family': 'sans-serif',
-    'font.sans-serif': ['Arial', 'Helvetica', 'DejaVu Sans', 'Liberation Sans'],
+    'font.sans-serif': ['Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans'],
     'svg.fonttype': 'none', 'pdf.fonttype': 42, 'mathtext.default': 'regular',
 })
 # palette harmonised with Figures 1-3
@@ -49,7 +49,7 @@ theo = {t: 100 * g[t] / tot for t in ['I', 'II', 'III']}
 actS = {t: 100 * rec[t] / rtot for t in ['I', 'II', 'III']}
 npl = {t: int((df.tier == t).sum()) for t in ['I', 'II', 'III']}
 recpct = 100 * rtot / tot
-MC_MED = 7.04
+theo_1e8 = tot * 1e4 / 1e8       # deterministic national total (matches the caption)
 
 
 def ribbon(ax, x0, x1, y0t, y0b, y1t, y1b, fc, alpha=0.80, z=3):
@@ -120,7 +120,7 @@ for t, lbl, sub, fcp in [('II', 'CHP \u00b7 biogas \u2192 heat + power', f"Tier 
 
 # headers (neutral stage labels)
 ax.text((xTb0 + xTb1) / 2, yT + 0.60, 'THEORETICAL', ha='center', va='center', fontsize=7.2, fontweight='bold', color=C_INK)
-ax.text((xTb0 + xTb1) / 2, yT + 0.31, f'{MC_MED:.2f}\u00d710$^8$ Nm$^3$ yr$^{{-1}}$', ha='center', va='center', fontsize=6.1, color=C_MID)
+ax.text((xTb0 + xTb1) / 2, yT + 0.31, f'{theo_1e8:.2f}\u00d710$^8$ Nm$^3$ yr$^{{-1}}$', ha='center', va='center', fontsize=6.1, color=C_MID)
 ax.text((xRb0 + xRb1) / 2, yT + 0.60, 'RECOVERABLE', ha='center', va='center', fontsize=7.2, fontweight='bold', color=C_INK)
 ax.text((xRb0 + xRb1) / 2, yT + 0.31, f'{rtot * 1e4 / 1e8:.2f}\u00d710$^8$ \u00b7 {recpct:.0f}%', ha='center', va='center', fontsize=6.1, color=C_MID)
 ax.text((xVe + xVw) / 2, yT + 0.60, 'VALUE LADDER', ha='center', va='center', fontsize=7.2, fontweight='bold', color=TCOL['I'])
